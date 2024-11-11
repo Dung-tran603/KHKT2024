@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="./css/main.css" />
 		<title>Sign In</title>
 		<script src="https://kit.fontawesome.com/0afaeea3b6.js" crossorigin="anonymous"></script>
-		<script src="./js/login.js"></script>
+		<script src="./js/signup.js"></script>
 	</head>
 	<body>
 		<div id="root" class="login-root">
@@ -27,13 +27,14 @@
 					<div class="login-body">
 						<div class="container">
 							<div class="container__element header">
-								<span class="header__title"><b>ĐĂNG KÝ</b></span>
+								<span class="header__title"><b>ĐĂNG NHẬP</b></span>
 							</div>
 							<div class="container__element body">
 								<div class="input-block">
 									<i class="fa-solid fa-user"></i>
 									<input
 										type="text"
+										id="username"
 										class="block__input"
 										placeholder="Nhập tài khoản . . ."
 									/>
@@ -41,27 +42,18 @@
 								<div class="input-block">
 									<i class="fa-solid fa-lock"></i>
 									<input
-										type="text"
+										type="password"
+										id="password"
 										class="block__input"
 										placeholder="Nhập mật khẩu . . ."
-									/>
-								</div>
-								<div class="input-block">
-									<i class="fa-solid fa-shield-halved"></i>
-									<input
-										type="text"
-										class="block__input"
-										placeholder="Xác nhận mật khẩu . . ."
 									/>
 								</div>
 							</div>
 							<div class="container__element footer">
 								<div class="footer__container">
-									<a href="./trangchu.html" class="footer__button button--left"
+									<a href="./index.html" class="footer__button button--left"
 									>Đăng kí</a>
-									<a href="./index.html" class="footer__button button--right"
-										>Đăng nhập</a
-									>
+									<button onclick="signin()" class="footer__button button--right">Đăng nhập</button>
 								</div>
 							</div>
 						</div>
@@ -91,15 +83,51 @@
 			</div>
 		</div>
 		<script>
+			// Định nghĩa hàm changeLoginButtonText
+			function changeLoginButtonText(selector, oldText, newText) {
+			  const button = document.querySelector(selector);
+			  if (button && button.textContent.trim() === oldText) {
+				button.textContent = newText;
+			  }
+			}
+		  
+			// Thay đổi văn bản nút khi trang được tải
 			changeLoginButtonText(".footer__button.button--left", "Chưa có tài khoản?", "Đăng kí");
+		  
+			// Thêm sự kiện lắng nghe khi thay đổi kích thước cửa sổ
 			window.addEventListener("resize", () => {
-				changeLoginButtonText(
-					".footer__button.button--left",
-					"Đã có tài khoản?",
-					"Đăng nhập"
-				);
+			  changeLoginButtonText(".footer__button.button--left", "Đã có tài khoản?", "Đăng nhập");
 			});
+		  </script>
+		  
+		<script> 
+			function signin() {
+  // Lấy giá trị từ các trường đầu vào
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  // Kiểm tra xem các trường đầu vào có giá trị hay không
+  if (!username || !password) {
+    alert("Vui lòng nhập tài khoản và mật khẩu.");
+    return;
+  }
+
+  // Lấy danh sách người dùng từ localStorage
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Tìm người dùng với email và mật khẩu nhập vào
+  const user = users.find(user => user.username === username && user.password === password);
+
+  if (user) {
+    // Nếu tìm thấy người dùng, đăng nhập thành công
+    alert("Đăng nhập thành công!");
+    window.location.href = "./trangchu.html"; // Điều hướng đến trang chính
+  } else {
+    // Nếu không tìm thấy người dùng, báo lỗi
+    alert("Tên người dùng hoặc mật khẩu không đúng.");
+  }
+}
+
 		</script>
-		<script src="./js/app.js"></script>
-	</body>
+		</body>
 </html>
