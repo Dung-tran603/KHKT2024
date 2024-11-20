@@ -2,7 +2,7 @@
 	display: flex;
 	height:10vh;
 	flex-direction: column;
-	background-color: rgb(68, 183, 33) ;
+	background-color: rgb(84, 198, 76) ;
 	color: white;
 }
 .header .header__top {
@@ -53,7 +53,6 @@
 	align-items: center;
 	gap: 10px;
     padding: 30px;
-	background-color:rgb(68, 183, 33) ;
 }
 
 .header .header__top .right span {
@@ -67,7 +66,7 @@
 	border-radius:50%;
 }
 .header .header__top .help-button {
-    position:fixed;
+	position:fixed;
     bottom:10px;
     right:20px;
     background-color:rgb(178, 237, 232);
@@ -84,68 +83,15 @@
     background-color:#0056b3;
     transform: scale(1.1)
 }
-.header .header__navBar {
-	background-color: rgb(172, 253, 190);
-	position:absolute ;
-	top:60px;
-	width:100%;
-	height:25px;
-	overflow-x:auto;
-	overflow-y:hidden;
-	margin-top:5px;
-}
-.header .header__navBar {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 0px 30px;
-    overflow-x: auto;
-}
-
-.header .header__navBar::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
-    height: 5px; /* Height of the scrollbar */
-}
-
-.header .header__navBar::-webkit-scrollbar-track {
-    background: rgb(128, 107, 107)28, 107, 107; /* Background of the scrollbar track */
-}
-
-.header .header__navBar::-webkit-scrollbar-thumb {
-    background-color: rgb(100, 100, 100); /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Roundness of the scrollbar thumb */
-    border: 1px solid white; /* Border around the scrollbar thumb */
-}
-
-
-.header .header__navBar .navBar__element{
-
-    background-color: rgb(44, 221, 91);
-    padding: 0 10px;
-    border-radius: 2px;
-    font-size: 18px;
-    text-decoration: none;
-    color: black;
-    text-wrap: nowrap;
-	cursor:pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-	border:5px;
-}
-.navBar__element:hover{
-    transform: scale(1.1)
-}
 .content{
 	display:flex;
-	margin-top:23px;
 }
 .left-column{
-	flex:2.5;
-	
-	padding:10px;
-	margin-top:3px
+	flex:3;
+	margin-top:10px;
 }
 .right-column{
-	flex:7.5;
+	flex:7;
 	background:rgb(255, 255, 255);
 	padding: 10px;
 }
@@ -173,6 +119,13 @@
 	text-align: center;
     margin-bottom:10px;
 }
+.chapter h4{
+	font-size: 1em;
+	margin-top: 10px;
+	margin-bottom:5px;
+	text-align: center;
+    margin-bottom:10px;
+}
 .chapter ul{
 	list-style-type:none;
 	background-color:#09721f;
@@ -181,6 +134,9 @@
     font-size:1.2em;
     white-space: normal;
     padding:0;
+}
+.chapter a {
+	text-decoration: none;
 }
 .chapter ul li{
     color:#000000;
@@ -199,4 +155,23 @@ li:hover {
 .chapter .lesson{
 	text-decoration: none;
 	color:#000000;
+}
+.header__navBar {
+	background-color:rgb(172,253,190);
+	gap: 20px;
+	padding: 0 20px;
+}
+.navBar__element {
+	background-color: rgb(44, 221, 91);
+    padding: 0 20px;
+    border-radius: 2px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    text-wrap: nowrap;
+	cursor:pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+	border:5px;
+	display:inline-block;
+	margin-right: 10px;
 }
